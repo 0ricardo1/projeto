@@ -6,24 +6,35 @@
 }
 
 :root {
---bg-url: url(./assets/bg-mobile.jpg);
+    --bg-url: url(./assets/bg-mobile.jpg);
+    --stroke-color: rgba(255, 255, 255, 0.5);
+    --surface-color: rgba(255, 255, 255, 0.1);
+    --switch-bg-url: url(./assets/moon-stars.svg);
+    --hightlight-color: rgba(255, 255, 255, 0.2);
 }
 
 .light {
---bg-url: url(./assets/bg-mobile-light.jpg);
+    --bg-url: url(./assets/bg-mobile-light.jpg);
+    --stroke-color: rgba(0, 0, 0, 0.5);
+    --surface-color: rgba(0, 0, 0, 0.05);
+    --switch-bg-url: url(./assets/sun.svg);
+    --hightlight-color: rgba(0, 0, 0, 0.1);
 }
 
 body {
     background-image: var(--bg-url);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
     padding: 30px;
 }
 
 #caixinha {
- height: 720px;
- width: 360px;
- margin: auto;
- border: 1px solid green;
- padding: 0 24;
+    height: 720px;
+    width: 360px;
+    margin: auto;
+    border: 1px solid green;
+    padding: 0 24;
 }
 
 #profile {
@@ -32,11 +43,85 @@ body {
 
 #profile img {
     height: 112px;
-    widht: 112px;
+    width: 112px;
     border-radius: 50%;
     margin-top: 56px;
 }
 
 #profile p {
     padding: 8px;
+}
+
+#switch {
+    position: relative;
+    width: 64px;
+    margin: 4px auto;
+}
+
+#switch button {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 0;
+    background: white var(--switch-bg-url) no-repeat center;
+    position: absolute;
+
+
+    z-index: 1;
+    transform: translateY(50%);
+    animation: slide-back .2s;
+}
+
+#switch button:hover {
+    outline: 8px solid var(--hightlight-color)
+}
+
+.light #switch button {
+    animation: slide-in .4s forwards;
+}
+
+#switch span {
+    display: block;
+    width: 64px;
+    height: 24px;
+    border-radius: 9999px;
+    background: var(--surface-color);
+    border: 1px solid var(--stroke-color);
+    backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px 0px;
+}
+
+ul li a {
+    display: flex;
+    text-decoration: none;
+    background: var(--surface-color);
+    border: 1px solid var(--stroke-color);
+    padding: 16px 24px;
+    border-radius: 8px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+#Redes {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    padding: 24px 0;
+    font-size: 24px;
+}
+
+footer {
+    text-align: center;
+    font-size: 14px;
 }
